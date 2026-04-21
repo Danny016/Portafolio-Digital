@@ -1,0 +1,40 @@
+/* ========================
+   Footer Styles
+   ======================== */
+
+footer {
+  background: var(--footer-bg);
+  border-top: 1px solid var(--border);
+  padding: 2rem 0;
+  text-align: center;
+  color: var(--text-secondary);
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.social-links a {
+  color: var(--text-secondary);
+  font-size: 1.4rem;
+  transition: color 0.2s, transform 0.2s;
+  text-decoration: none;
+}
+
+.social-links a:hover {
+  color: var(--accent);
+  transform: translateY(-3px);
+}
+
+@media (max-width: 768px) {
+  footer {
+    padding: 1.5rem 0;
+  }
+
+  .social-links {
+    gap: 1.2rem;
+  }
+}

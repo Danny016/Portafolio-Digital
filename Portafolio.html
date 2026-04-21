@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Alex Rivera | Portafolio de Programador</title>
+    <!-- Google Fonts + Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: background 0.3s ease, color 0.2s ease;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        /* Light/Dark Variables */
+        :root {
+            --bg-primary: #f8fafc;
+            --bg-secondary: #ffffff;
+            --text-primary: #0f172a;
+            --text-secondary: #334155;
+            --accent: #3b82f6;
+            --accent-hover: #2563eb;
+            --card-bg: #ffffff;
+            --border: #e2e8f0;
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
+            --skill-bg: #f1f5f9;
+            --footer-bg: #f1f5f9;
+        }
+
+        body.dark {
+            --bg-primary: #0a0c10;
+            --bg-secondary: #111418;
+            --text-primary: #edf2f7;
+            --text-secondary: #94a3b8;
+            --accent: #60a5fa;
+            --accent-hover: #3b82f6;
+            --card-bg: #1e293b;
+            --border: #2d3a4e;
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+            --skill-bg: #1e293b;
+            --footer-bg: #0f1722;
+        }
+
+        body {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header & Nav */
+        .navbar {
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(12px);
+            background: rgba(var(--bg-primary), 0.8);
+            background-color: color-mix(in srgb, var(--bg-primary) 85%, transparent);
+            z-index: 100;
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 0;
+        }
+        body.dark .navbar {
+            background-color: color-mix(in srgb, #0a0c10 90%, transparent);
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent), #8b5cf6);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        .theme-toggle {
+            background: var(--skill-bg);
+            border: 1px solid var(--border);
+            border-radius: 3rem;
+            cursor: pointer;
+            padding: 0.5rem 0.9rem;
+            font-size: 1.2rem;
+            transition: all 0.2s;
+            color: var(--text-primary);
+        }
+
+        /* Botones */
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 2rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+        .btn-primary:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+        .btn-outline {
+            background: transparent;
+            border: 1.5px solid var(--border);
+            color: var(--text-primary);
+        }
+        .btn-outline:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        /* Secciones */
+        section {
+            padding: 5rem 0;
+        }
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 2.5rem;
+            text-align: center;
+            letter-spacing: -0.01em;
+        }
+        .section-title span {
+            background: linear-gradient(120deg, var(--accent), #a855f7);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+        }
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            max-width: 700px;
+        }
+        .hero-badge {
+            background: var(--skill-bg);
+            padding: 0.3rem 1rem;
+            border-radius: 2rem;
+            width: fit-content;
+            font-size: 0.85rem;
+            color: var(--accent);
+            border: 1px solid var(--border);
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+        .hero-highlight {
+            color: var(--accent);
+        }
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 550px;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .skill-card {
+            background: var(--skill-bg);
+            padding: 0.75rem 1.5rem;
+            border-radius: 3rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            border: 1px solid var(--border);
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        .skill-card i {
+            font-size: 1.3rem;
+            color: var(--accent);
+        }
+        .skill-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent);
+        }
+
+        /* Proyectos Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 1.5rem;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            transition: transform 0.25s ease, box-shadow 0.25s;
+            box-shadow: var(--shadow);
+        }
+        .project-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.2);
+        }
+        .project-img {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            padding: 2rem 0;
+            text-align: center;
+            color: white;
+            font-size: 3rem;
+        }
+        body.dark .project-img {
+            background: linear-gradient(135deg, #2d3a4e, #111827);
+        }
+        .project-info {
+            padding: 1.5rem;
+        }
+        .project-info h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+        .project-info p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.2rem;
+        }
+        .project-tech span {
+            background: var(--skill-bg);
+            padding: 0.2rem 0.8rem;
+            border-radius: 2rem;
+            font-size: 0.7rem;
+            font-weight: 500;
+        }
+        .project-links a {
+            color: var(--text-secondary);
+            margin-right: 1rem;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .project-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Contacto */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+        }
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .info-item i {
+            font-size: 1.6rem;
+            width: 2.5rem;
+            color: var(--accent);
+        }
+        .contact-form {
+            background: var(--card-bg);
+            padding: 1.8rem;
+            border-radius: 1.5rem;
+            border: 1px solid var(--border);
+        }
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            font-family: inherit;
+            color: var(--text-primary);
+            transition: 0.2s;
+        }
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(59,130,246,0.2);
+        }
+        .contact-form button {
+            width: 100%;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--footer-bg);
+            border-top: 1px solid var(--border);
+            padding: 2rem 0;
+            text-align: center;
+            color: var(--text-secondary);
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        .social-links a {
+            color: var(--text-secondary);
+            font-size: 1.4rem;
+            transition: color 0.2s, transform 0.2s;
+        }
+        .social-links a:hover {
+            color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.3rem; }
+            .contact-wrapper { grid-template-columns: 1fr; }
+            .nav-container { flex-direction: column; }
+            .nav-links { justify-content: center; }
+            section { padding: 3rem 0; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">&lt;Alex Rivera /&gt;</div>
+            <div class="nav-links">
+                <a href="#inicio">Inicio</a>
+                <a href="#habilidades">Habilidades</a>
+                <a href="#proyectos">Proyectos</a>
+                <a href="#contacto">Contacto</a>
+                <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero / Inicio -->
+        <section id="inicio" class="hero">
+            <div class="container hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-code"></i> +4 años de experiencia
+                </div>
+                <h1>Construyo <span class="hero-highlight">soluciones digitales</span> que marcan la diferencia</h1>
+                <p>Soy desarrollador Full Stack apasionado por crear aplicaciones web robustas, escalables y con diseño centrado en el usuario.</p>
+                <div class="hero-buttons">
+                    <a href="#proyectos" class="btn btn-primary">Ver proyectos <i class="fas fa-arrow-right"></i></a>
+                    <a href="#" class="btn btn-outline" id="downloadCVbtn">Descargar CV <i class="fas fa-download"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Habilidades -->
+        <section id="habilidades">
+            <div class="container">
+                <h2 class="section-title">⚡ <span>Habilidades técnicas</span></h2>
+                <div class="skills-grid">
+                    <div class="skill-card"><i class="fab fa-js"></i> JavaScript / TypeScript</div>
+                    <div class="skill-card"><i class="fab fa-react"></i> React & Next.js</div>
+                    <div class="skill-card"><i class="fab fa-node-js"></i> Node.js / Express</div>
+                    <div class="skill-card"><i class="fab fa-python"></i> Python / Django</div>
+                    <div class="skill-card"><i class="fas fa-database"></i> PostgreSQL / MongoDB</div>
+                    <div class="skill-card"><i class="fab fa-git-alt"></i> Git & GitHub Actions</div>
+                    <div class="skill-card"><i class="fas fa-cloud"></i> AWS / Docker</div>
+                    <div class="skill-card"><i class="fas fa-mobile-alt"></i> Responsive Design</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Proyectos -->
+        <section id="proyectos">
+            <div class="container">
+                <h2 class="section-title">📁 <span>Proyectos destacados</span></h2>
+                <div class="projects-grid">
+                    <!-- Proyecto 1 -->
+                    <div class="project-card">
+                        <div class="project-img"><i class="fas fa-chart-line fa-3x"></i></div>
+                        <div class="project-info">
+                            <h3>FinFlow Dashboard</h3>
+                            <p>Plataforma analítica para gestión financiera con gráficos en tiempo real y reportes automatizados.</p>
+                            <div class="project-tech">
+                                <span>React</span><span>D3.js</span><span>Node.js</span><span>MongoDB</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#"><i class="fab fa-github"></i> Repo</a>
+                                <a href="#"><i class="fas fa-external-link-alt"></i> Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Proyecto 2 -->
+                    <div class="project-card">
+                        <div class="project-img"><i class="fas fa-store fa-3x"></i></div>
+                        <div class="project-info">
+                            <h3>MarketPlace API</h3>
+                            <p>Backend escalable para e-commerce con autenticación JWT, pasarela de pagos y documentación Swagger.</p>
+                            <div class="project-tech">
+                                <span>NestJS</span><span>PostgreSQL</span><span>Redis</span><span>TypeORM</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#"><i class="fab fa-github"></i> Repo</a>
+                                <a href="#"><i class="fas fa-external-link-alt"></i> API Docs</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Proyecto 3 -->
+                    <div class="project-card">
+                        <div class="project-img"><i class="fas fa-tasks fa-3x"></i></div>
+                        <div class="project-info">
+                            <h3>TaskFlow Pro</h3>
+                            <p>Aplicación colaborativa de gestión de tareas con drag & drop, comentarios y notificaciones en tiempo real.</p>
+                            <div class="project-tech">
+                                <span>Vue 3</span><span>Pinia</span><span>Socket.io</span><span>Tailwind</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#"><i class="fab fa-github"></i> Repo</a>
+                                <a href="#"><i class="fas fa-external-link-alt"></i> Live</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Proyecto 4 extra -->
+                    <div class="project-card">
+                        <div class="project-img"><i class="fas fa-robot fa-3x"></i></div>
+                        <div class="project-info">
+                            <h3>AI Content Hub</h3>
+                            <p>Generador de contenido asistido por IA con integración OpenAI, frontend interactivo y caché optimizada.</p>
+                            <div class="project-tech">
+                                <span>Next.js</span><span>OpenAI API</span><span>Prisma</span><span>Vercel</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#"><i class="fab fa-github"></i> Repo</a>
+                                <a href="#"><i class="fas fa-external-link-alt"></i> Preview</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contacto -->
+        <section id="contacto">
+            <div class="container">
+                <h2 class="section-title">📬 <span>Hablemos</span></h2>
+                <div class="contact-wrapper">
+                    <div class="contact-info">
+                        <div class="info-item"><i class="fas fa-envelope"></i> <span>alex.rivera@devportfolio.com</span></div>
+                        <div class="info-item"><i class="fab fa-github"></i> <span>/alexrivera-dev</span></div>
+                        <div class="info-item"><i class="fab fa-linkedin"></i> <span>linkedin.com/in/alexrivera</span></div>
+                        <div class="info-item"><i class="fas fa-map-marker-alt"></i> <span>Buenos Aires, Argentina</span></div>
+                        <div class="info-item"><i class="fas fa-clock"></i> <span>Disponible para freelance / remoto</span></div>
+                    </div>
+                    <div class="contact-form">
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <input type="text" id="nombre" placeholder="Nombre completo" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="email" placeholder="Correo electrónico" required>
+                            </div>
+                            <div class="form-group">
+                                <textarea rows="4" id="mensaje" placeholder="Cuéntame sobre tu proyecto o idea..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Enviar mensaje</button>
+                        </form>
+                        <p style="font-size: 0.75rem; margin-top: 1rem; text-align: center; color: var(--text-secondary);">* Demo: simulación de envío (modo consola)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Correo"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p>© 2025 Alex Rivera — Ingeniero de software | Creativo y resolutivo</p>
+        </div>
+    </footer>
+
+    <script>
+        // Dark Mode Toggle con persistencia y cambio de icono
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        const icon = themeToggle.querySelector('i');
+
+        // Cargar tema guardado
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            body.classList.add('dark');
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+        } else if (savedTheme === 'light') {
+            body.classList.remove('dark');
+            icon.classList.remove('fa-sun');
+            icon.classList.add('fa-moon');
+        } else {
+            // preferencia del sistema? por defecto dark es cool pero respetamos si no hay guardado
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches && !savedTheme) {
+                body.classList.add('dark');
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            }
+        }
+
+        themeToggle.addEventListener('click', () => {
+            if (body.classList.contains('dark')) {
+                body.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            } else {
+                body.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            }
+        });
+
+        // Botón descargar CV (simulado)
+        const cvBtn = document.getElementById('downloadCVbtn');
+        cvBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            alert("📄 Demo: Descarga de CV. En un caso real, aquí se generaría el PDF o se redirigiría al enlace.");
+            // Podríamos crear un CV ficticio, pero por simplicidad mostramos mensaje
+        });
+
+        // Formulario de contacto (simulación de envío + validación)
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const nombre = document.getElementById('nombre').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const mensaje = document.getElementById('mensaje').value.trim();
+
+            if (!nombre || !email || !mensaje) {
+                alert("❌ Por favor, completa todos los campos.");
+                return;
+            }
+            if (!email.includes('@') || !email.includes('.')) {
+                alert("📧 Ingresa un correo electrónico válido.");
+                return;
+            }
+
+            // Simular envío exitoso
+            alert(`✨ ¡Gracias ${nombre}! Tu mensaje ha sido enviado (simulación). Pronto me pondré en contacto contigo.`);
+            contactForm.reset();
+            // Se podría agregar lógica de fetch a API, pero es un portfolio frontend demo
+        });
+
+        // Smooth scroll para enlaces internos (mejora compatibilidad)
+        document.querySelectorAll('.nav-links a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    e.preventDefault();
+                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Efecto sutil al cargar para hero badge
+        console.log("Portafolio de programador — listo para inspirar");
+    </script>
+</body>
+</html>

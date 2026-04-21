@@ -1,0 +1,73 @@
+/* ========================
+   Hero Section Styles
+   ======================== */
+
+.hero {
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 700px;
+}
+
+.hero-badge {
+  background: var(--skill-bg);
+  padding: 0.3rem 1rem;
+  border-radius: 2rem;
+  width: fit-content;
+  font-size: 0.85rem;
+  color: var(--accent);
+  border: 1px solid var(--border);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.hero-highlight {
+  color: var(--accent);
+  background: linear-gradient(120deg, var(--accent), #a855f7);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  max-width: 550px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.3rem;
+  }
+
+  .hero {
+    min-height: 60vh;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}

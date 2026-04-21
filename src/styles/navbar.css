@@ -1,0 +1,84 @@
+/* ========================
+   Navbar Styles
+   ======================== */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(12px);
+  background: rgba(var(--bg-primary), 0.8);
+  background-color: color-mix(in srgb, var(--bg-primary) 85%, transparent);
+  z-index: 100;
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 0;
+}
+
+body.dark .navbar {
+  background-color: color-mix(in srgb, #0a0c10 90%, transparent);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--accent), #8b5cf6);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-weight: 500;
+  transition: color 0.2s;
+  cursor: pointer;
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+}
+
+.theme-toggle {
+  background: var(--skill-bg);
+  border: 1px solid var(--border);
+  border-radius: 3rem;
+  cursor: pointer;
+  padding: 0.5rem 0.9rem;
+  font-size: 1.2rem;
+  transition: all 0.2s;
+  color: var(--text-primary);
+}
+
+.theme-toggle:hover {
+  border-color: var(--accent);
+}
+
+@media (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+  }
+
+  .nav-links {
+    justify-content: center;
+  }
+
+  .logo {
+    font-size: 1.3rem;
+  }
+}

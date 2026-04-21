@@ -1,0 +1,138 @@
+/* ========================
+   ESTILOS GLOBALES Y VARIABLES
+   ======================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  transition: background 0.3s ease, color 0.2s ease;
+  line-height: 1.5;
+  scroll-behavior: smooth;
+}
+
+/* Light/Dark Mode Variables */
+:root {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #ffffff;
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --accent: #3b82f6;
+  --accent-hover: #2563eb;
+  --card-bg: #ffffff;
+  --border: #e2e8f0;
+  --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
+  --skill-bg: #f1f5f9;
+  --footer-bg: #f1f5f9;
+}
+
+body.dark {
+  --bg-primary: #0a0c10;
+  --bg-secondary: #111418;
+  --text-primary: #edf2f7;
+  --text-secondary: #94a3b8;
+  --accent: #60a5fa;
+  --accent-hover: #3b82f6;
+  --card-bg: #1e293b;
+  --border: #2d3a4e;
+  --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+  --skill-bg: #1e293b;
+  --footer-bg: #0f1722;
+}
+
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+/* ========================
+   CONTAINER
+   ======================== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ========================
+   BOTONES
+   ======================== */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 2rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: white;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.btn-primary:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1.5px solid var(--border);
+  color: var(--text-primary);
+}
+
+.btn-outline:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ========================
+   SECCIONES
+   ======================== */
+section {
+  padding: 5rem 0;
+}
+
+.section-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+  text-align: center;
+  letter-spacing: -0.01em;
+}
+
+.section-title span {
+  background: linear-gradient(120deg, var(--accent), #a855f7);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* ========================
+   RESPONSIVE
+   ======================== */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  section {
+    padding: 3rem 0;
+  }
+}
