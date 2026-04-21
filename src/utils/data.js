@@ -48,7 +48,7 @@ export const portfolioData = {
       icon: 'fas fa-palette',
       technologies: ['Figma'],
       links: {
-        repo: 'https://www.figma.com/make/CYHFL3K6pG5Lxk8ScKef0o/Dise%C3%B1o-app-gesti%C3%B3n-pr%C3%A9stamos?fullscreen=1&t=So4hOeHj8DXk561c-1&preview-route=%2Fcatalog'
+        figma: 'https://www.figma.com/make/CYHFL3K6pG5Lxk8ScKef0o/Dise%C3%B1o-app-gesti%C3%B3n-pr%C3%A9stamos?fullscreen=1&t=So4hOeHj8DXk561c-1&preview-route=%2Fcatalog'
       }
     },
     // {
