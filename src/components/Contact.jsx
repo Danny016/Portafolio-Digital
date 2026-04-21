@@ -19,10 +19,6 @@ const ContactInfo = ({ author }) => {
         <span>{author.github}</span>
       </div>
       <div className="info-item">
-        <i className="fab fa-linkedin"></i>
-        <span>{author.linkedin}</span>
-      </div>
-      <div className="info-item">
         <i className="fas fa-map-marker-alt"></i>
         <span>{author.location}</span>
       </div>
