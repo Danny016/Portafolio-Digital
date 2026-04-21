@@ -181,7 +181,7 @@ MIT © 2025
 
 ## 👨‍💻 Autor
 
-**Alex Rivera** - Desarrollador Full Stack
+**Daniel Reyes** - Desarrollador Full Stack
 
 ## 📧 Contacto
 

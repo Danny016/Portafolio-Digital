@@ -2,7 +2,7 @@
   "name": "portafolio-digital",
   "version": "1.0.0",
   "type": "module",
-  "description": "Portafolio digital de Alex Rivera - Desarrollador Full Stack",
+  "description": "Portafolio digital de Daniel Reyes - Desarrollador Full Stack",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
